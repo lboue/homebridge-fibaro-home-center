@@ -133,13 +133,17 @@ export class FibaroAccessory {
           case 'com.fibaro.FGFS101':
           case 'com.fibaro.floodSensor':
             service = this.platform.Service.LeakSensor;
-            this.mainCharacteristics = [this.platform.Characteristic.LeakDetected];
+            this.mainCharacteristics =
+                    [this.platform.Characteristic.LeakDetected],
+                      this.platform.Characteristic.CurrentTemperature];
             break;
           case 'com.fibaro.FGSS001':
           case 'com.fibaro.smokeSensor':
           case 'com.fibaro.gasDetector':
             service = this.platform.Service.SmokeSensor;
-            this.mainCharacteristics = [this.platform.Characteristic.SmokeDetected];
+            this.mainCharacteristics = 
+                    [this.platform.Characteristic.SmokeDetected,
+                      this.platform.Characteristic.CurrentTemperature];
             break;
           case 'com.fibaro.FGCD001':
             service = this.platform.Service.CarbonMonoxideSensor;

@@ -201,6 +201,9 @@ export class FibaroHC implements DynamicPlatformPlugin {
     }
     const uuid = this.api.hap.uuid.generate(device.name + device.roomID);
     const existingAccessory = this.accessories.find(accessory => accessory.UUID === uuid);
+
+    this.log.info('parentId new accessory:', device.name, device.parentId);
+
     if (existingAccessory) {
       // the accessory already exists
       this.log.info('Restoring existing accessory from cache:', existingAccessory.displayName);
