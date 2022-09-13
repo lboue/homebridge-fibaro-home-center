@@ -264,7 +264,10 @@ export class FibaroAccessory {
           this.mainService.subtype = subtype;
         }
         this.bindCharactersticsEvent(this.mainService, this.mainCharacteristics);
-
+            
+        if (this.device.interfaces && this.device.interfaces.includes('energy')) {
+          this.platform.log.info('energy detected for this device');
+        }
         if (this.device.interfaces && this.device.interfaces.includes('battery')) {
           this.batteryService = this.accessory.getService(this.platform.Service.Battery);
           if (!this.batteryService) {
